@@ -1,0 +1,19 @@
+﻿@model AddNewFilmViewModel
+
+@using (@Html.BeginForm("AddFilm", "AddNewFilm",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <h2>Введите название</h2>
+    <input id="name" name="name">
+    <h2>Введите оценку</h2>
+    <input id="rating" name="rating">
+    <h2>Введите описание</h2>
+    <input id="description" name="description">
+    <h2>Введите жанры</h2>
+    <input id="genres" name="genres">
+    <h2>Добавьте картинку</h2>
+    <input type="file" name="files">
+    <br>
+    <div class="pull-right">
+        <input type="submit" class="btn btn-success" value="Добавить" />
+    </div>
+}

@@ -1,0 +1,10 @@
+﻿@model KeyValuePair<User, Review>
+<div class="review-author-information">
+    <a href="/User/@Model.Key.Name"><p>@Model.Key.Name</p></a>
+</div>
+<div class="review-information">
+    <h3>@Model.Value.Title</h3>
+    <h3 class="rating">@Model.Value.Rating</h3>
+    <p>@Model.Value.Text</p>
+</div>
+    

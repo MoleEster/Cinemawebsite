@@ -1,0 +1,15 @@
+﻿@model HomeViewModel
+
+@{
+    if (@Model.Films.Count() != 0)
+    {
+        foreach (Film film in @Model.Films)
+        {
+        @Html.Partial("MainFilmView", film);
+        }
+    }
+    else
+    {
+        <h1>К сожалению фильмов по вашему запросу не найдено</h1>
+    }
+}

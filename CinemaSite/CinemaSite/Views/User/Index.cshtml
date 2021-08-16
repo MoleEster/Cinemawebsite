@@ -1,0 +1,51 @@
+﻿@model UserViewModel
+    <head>
+        <link rel="stylesheet" type="text/css" href="~/css/StyleRegistration.css" />
+    </head>
+
+
+@if (Model.ActiveUser != null)
+{
+    @using (@Html.BeginForm("Logout", "User"))
+    {
+        <input type="submit" value="Выйти"/>
+    }
+    <h1>@Model.ActiveUser.Name</h1>
+    @if (Model.ActiveUser != null && Model.ActiveUser.IsAdmin)
+    {
+        <a id="AddingFilmContainer" href="/AddNewFilm">Добавить фильм</a>
+    }
+    @if (@Model.UsersReviews == null)
+    {
+        <p>У вас пока что нет рецензий, скорее исправьте это!</p>
+    }
+    else
+    {
+        foreach (var item in @Model.UsersReviews)
+        {
+            @Html.Partial("UserReview", item)
+
+        }
+    }
+}
+else
+{
+<div class="login-form-initial">
+    <div class="login-form">
+        <h1>Вход</h1>
+        @using (@Html.BeginForm("Login", "User"))
+        {
+            <h2>Введите ваш email</h2>
+            <input id="email" name="email" type="text">
+            <h2>Введите ваш password</h2>
+            <input id="password" name="password" type="text">
+            <br>
+            <div class="submit-button">
+                <input type="submit"  value="Войти" />
+            </div>
+            <h3>Если у вас нет аккаунта</h3><a href="/User/Registry"><h3>Зарегистрируйтесь</h3></a>
+        }
+    </div> 
+</div>
+}
+

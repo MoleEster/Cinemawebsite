@@ -1,0 +1,15 @@
+﻿@model Film 
+
+<div class="film-card">
+    <a href="/Home/@Model.Name">
+        <div class="film-card-content">
+            <div class="film-card-content-main">
+                <h1>@Model.Name</h1>
+
+                <h2>@Model.Rating/10</h2>
+            </div>
+        </div>
+        <div class="film-card-image"></div>
+        <img src="@Model.Img" />
+    </a>
+</div>

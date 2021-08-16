@@ -1,0 +1,102 @@
+﻿@keyframes fade{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+.filters-panel {
+    padding: 20px;
+    height:50px;
+    border-bottom: 1px solid #000;
+    align-content:flex-start;
+    vertical-align: central;
+    display: flex;
+}
+
+.filters-panel h3{
+    height:30px;
+    font-size:16px;
+}
+.filters-panel input[type="text"] {
+    margin-top: auto;
+    margin-left:10px;
+    margin-bottom: auto;
+    height: 30px;
+    font-size: 16px;
+}
+
+.main-films-grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.film-card {
+    box-sizing: border-box;
+    width: 240px;
+    height: 320px;
+    position: relative;
+    padding:15px;
+}
+.film-card-image {
+    z-index: 2;
+    position: absolute;
+    display: none;
+    width: 210px;
+    height: 290px;
+    object-fit: cover;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+    animation: fade .1s linear forwards;
+}
+.film-card img {
+    z-index:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.film-card-content {
+    z-index: 3;
+    position: absolute;
+    display: none;
+    animation: all fade .5s linear forwards;
+}
+.film-card-content-main{
+    margin-top:200px;
+    text-align:center;
+}
+.film-card-content h1 {
+    margin-left:auto;
+    margin-right:auto;
+    padding:0px 5px 0px 5px;
+    color: #fff;
+    font-family: 'Malgun Gothic';
+    font-size: x-large;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.film-card-content h2 {
+    color: #fff;
+    font-family: 'Malgun Gothic';
+    font-size: medium;
+    font-weight: 200;
+}
+
+.film-card:hover .film-card-content {
+    display: block;
+}
+
+.film-card:hover .film-card-image {
+    display: block;
+}
+
+.film-card:after .film-card-content {
+    display: none;
+}
+
+.film-card:after .film-card-image {
+    display: none;
+}

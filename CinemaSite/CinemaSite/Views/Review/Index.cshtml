@@ -1,0 +1,12 @@
+﻿@using (@Html.BeginForm("AddReview", "Review", FormMethod.Post))
+{
+    <h2>Введите заголовок</h2>
+    <input id="title" name="title">
+    <h2>Введите оценку</h2>
+    <input id="rating" name="rating">
+    <h2>Введите текст</h2>
+    <input id="text" name="text">
+    <div class="pull-right">
+        <input type="submit" class="btn btn-success" value="Добавить" />
+    </div>
+}

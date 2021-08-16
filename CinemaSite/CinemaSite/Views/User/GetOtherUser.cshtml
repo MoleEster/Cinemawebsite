@@ -1,0 +1,15 @@
+﻿@model OtherUserViewModel
+
+<h1>@Model.ThisUser.Name</h1>
+@if (@Model.Reviews == null)
+{
+<p>У @Model.ThisUser.Name пока что нет рецензий</p>
+}
+else
+{
+    foreach (var item in @Model.Reviews)
+    {
+        @Html.Partial("UserReview", item)
+
+    }
+}

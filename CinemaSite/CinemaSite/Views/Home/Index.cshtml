@@ -1,0 +1,25 @@
+﻿@model HomeViewModel
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/StyleHome.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+
+<div class="filters-panel">
+    <h3>Поиск:</h3>
+    <input class="search" name="search" type="text"/>
+</div>
+
+<div class="main-films-grid">
+    @Html.Partial("FilmsPartialView")
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".search").on('change', function (e) {
+            $(".main-films-grid").fadeOut(1);
+            $(".main-films-grid").load("/Home/Search", { input: this.value });
+            $(".main-films-grid").fadeIn(800);
+        })
+    })
+</script>

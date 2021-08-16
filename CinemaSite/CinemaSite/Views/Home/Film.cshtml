@@ -1,0 +1,76 @@
+﻿
+@model FilmViewModel
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/StyleFilm.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="~/js/CommonScripts.js"></script>
+</head>
+<div id="p_prldr">
+    <div class="contpre">
+        <img class="preloader-logo" src="~/img/logo.png" />
+    </div>
+</div>
+<div class="film-information">
+    <img src="@Model.Film.Img" />
+    <div class="film-information-content">
+
+        <h1>@Model.Film.Name</h1>
+        <h2 class="rating">@Model.Film.Rating</h2>
+        <p>@Model.Film.Description</p>
+    </div>
+</div>
+@{
+    if (Model.activeUser != null)
+    {
+        <a href="#review-popup" id="review-popup-button"><h1>Добавить рецензию</h1></a>
+        <div id="review-popup" class="review-popup closed">
+            <a href="#" id="close-review-popup">X</a>
+            @using (@Html.BeginForm("AddReview", "Review", FormMethod.Post))
+            {
+                <div class="review-popup-content" id="review-popup-content">
+                    <input id="filmName" name="filmName" type="hidden" value="@Model.Film.Name" />
+                    <h2>Введите заголовок</h2>
+                    <input id="title" name="title" type="text">
+                    <h2>Введите оценку</h2>
+                    <select name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <h2>Введите текст</h2>
+                    <textarea id="text" name="text" cols="40" rows="3"></textarea>
+                    <div class="submit-button">
+                        <input type="submit" value="Добавить" />
+                    </div>
+                </div>
+            }
+        </div>
+        <script src="~/js/FilmPageScript.js"></script>
+    }
+    else
+    {
+        <div class="registryButton">
+            <h1>Для того, чтобы оставить рецензию, </h1><a href="/User" id="registryButton"><h1>зарегистрируйтесь</h1></a>
+        </div>
+    }
+}
+
+<h2 class="reviews-header">Отзывы</h2>
+<div class="people-reviews">
+    @{
+        foreach (KeyValuePair<User, Review> review in @Model.FilmReviews)
+        {
+            <div class="someones-review">
+                @Html.Partial("Review", review)
+            </div>
+        }
+    }
+</div>

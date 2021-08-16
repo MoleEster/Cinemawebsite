@@ -1,0 +1,209 @@
+﻿/*Preloader*/
+#p_prldr {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFA540;
+    z-index: 30;
+}
+
+.contpre {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    margin-left: -125px;
+    margin-top: -75px;
+    color: #fff;
+    font-size: 40px;
+    letter-spacing: -2px;
+    text-align: center;
+    line-height: 35px;
+}
+
+#p_prldr .preloader-logo {
+    width: 200px;
+    height: 200px;
+    background-size: 41px;
+}
+/*film*/
+.film-information {
+    height: 800px;
+    width: 100%;
+    display: grid;
+}
+
+.film-information img{
+    grid-column:1;
+    max-height:800px;
+}
+
+.film-information .film-information-content {
+    grid-column: 2;
+    padding:50px;
+}
+
+/*adding review form*/
+.review-popup {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #FFA540;
+    animation: reviewdisappiarence 2s;
+}
+
+.review-popup.open {
+    height:500px;
+    transition: all 2s ease-in-out;
+    animation:reviewappiarence 2s;
+}
+
+.review-popup.closed {
+    height:0px;
+    overflow:hidden;
+    opacity:0;
+    transition: all 2s ease-in-out;
+    animation: reviewdisappiarence 2s;
+}
+
+.review-popup.open .review-popup-content {
+    transition: all 2s ease-in-out;
+    padding: 20px;
+    width: 600px;
+    margin: 0 auto 0 auto;
+    opacity: 1;
+    animation: reviewopacity 2s;
+}
+
+.review-popup-content.closed {
+    padding:20px;
+    width:600px;
+    margin: 0 auto 0 auto;
+    opacity: 0;
+    animation: reviewopacityclose 1s;
+}
+
+.review-popup-content #title{
+    left:50%;
+    justify-content:center;
+    text-align:center;
+    align-content:center;
+    height:40px;
+    font-size:16px;
+    width:90%;
+}
+.review-popup-content select {
+    margin: 0;
+    padding: 5px;
+}
+.review-popup-content select option {
+    display: inline-block;
+    border-right: 5px;
+    cursor: pointer;
+}
+
+.review-popup-content #text{
+    width:90%;
+    max-width:580px;
+    max-height:90px;
+}
+
+.review-popup-content .submit-button {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-button input[type="submit"] {
+    vertical-align: central;
+    width: 130px;
+    height: 40px;
+    border: 2px solid #FFA540;
+    background-color: #fff;
+    transition: all 1s ease;
+}
+
+.submit-button input[type="submit"]:hover {
+    background-color: #3BA3D0;
+    transition: all 0.3s ease;
+}
+
+
+@keyframes reviewappiarence {
+    0% {height:0px;
+    }
+    100%{height:500px}
+}
+@keyframes reviewdisappiarence {
+    0% {
+        height: 500px;
+        opacity:1;
+    }
+    50% {
+        height: 500px;
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        height: 0px;
+    }
+
+}
+@keyframes reviewopacity{
+    0%{opacity:0;}
+    50%{opacity:0;}
+    100%{opacity:1;}
+}
+@keyframes reviewopacityclose {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/*end of ----------------------------------------------------adding review form*/
+
+/*reviews panel*/
+
+.reviews-header{
+    padding:50px;
+    text-align:center;
+}
+
+.people-reviews {
+    width: 100%;
+    border: 1px solid #FFA540;
+    border-bottom: none;
+}
+
+.someones-review {
+    width: 94%;
+    display: flex;
+    margin: 50px;
+    border: 1px solid #3BA3D0;
+    border-left: none;
+    border-right: none;
+}
+
+.someones-review .review-author-information {
+    border-right: 1px solid #3BA3D0;
+    width:10%;
+}
+
+.someones-review .review-information {
+    margin: 5px 20px;
+    width:93%;
+}
+
+.someones-review .review-information #rating{
+    margin:initial;
+    margin-bottom:5px;
+}

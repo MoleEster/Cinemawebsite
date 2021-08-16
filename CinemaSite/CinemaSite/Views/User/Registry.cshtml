@@ -1,0 +1,25 @@
+﻿@model User
+    <head>
+        <link rel="stylesheet" type="text/css" href="~/css/StyleRegistration.css" />
+    </head>
+    <div class="register-form-initial">
+        <div class="register-form">
+            <h1>Регистрация</h1>
+            @using (@Html.BeginForm("Registry", "User"))
+            {
+                <h2>Введите ваше имя</h2>
+                @Html.ValidationMessageFor(model => model.Name);
+                @Html.EditorFor(model => model.Name);
+                <h2>Введите ваш email</h2>
+                @Html.ValidationMessageFor(model => model.Email);
+                @Html.EditorFor(model => model.Email);
+                <h2>Введите ваш password</h2>
+                @Html.ValidationMessageFor(model => model.Password);
+                @Html.EditorFor(model => model.Password);
+                <br>
+                <div class="submit-button">
+                    <input type="submit" value="Зарегистрироваться" />
+                </div>
+            }
+        </div>
+    </div>
