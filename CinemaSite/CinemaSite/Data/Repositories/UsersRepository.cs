@@ -35,7 +35,6 @@ namespace CinemaSite.Data.Repositories
         {
             if(!(string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(Password)))
             {
-                List<User> nigger = _context.Users.Where(u => u.Name == Name).ToList();
                 if (_context.Users.Where(u => u.Name == Name).ToList().Count() == 0)
                 {
                     User NewUser = new User()
